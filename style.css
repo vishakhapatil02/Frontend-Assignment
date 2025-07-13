@@ -3,11 +3,6 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f4f4f4;
-}
-
-h2 {
-  margin-top: 10px;
 }
 
 #map {
@@ -15,22 +10,33 @@ h2 {
   width: 100%;
 }
 
-.form-container-horizontal {
+.form-container {
+  padding: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
-  padding: 15px;
-  flex-wrap: wrap;
-  background-color: white;
+  align-items: center;
 }
 
-.form-container-horizontal input,
-.form-container-horizontal button {
+.form-container input,
+.form-container button {
   padding: 10px;
   font-size: 16px;
-  width: 200px;
-  max-width: 90vw;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Updated Get Route button color */
+#fetchRoute {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#fetchRoute:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 #controls {
