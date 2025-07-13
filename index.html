@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rotating Car on Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <h2>🚗 Rotating Vehicle Movement</h2>
+
+  <div class="form-container">
+    <input type="text" id="start" placeholder="Start Location (e.g., Hyderabad)" />
+    <input type="text" id="end" placeholder="End Location (e.g., Secunderabad)" />
+    <button id="fetchRoute">Get Route</button>
+  </div>
+
+  <div id="map"></div>
+  <div class="controls">
+    <button id="playBtn">▶ Play</button>
+    <button id="pauseBtn">⏸ Pause</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
