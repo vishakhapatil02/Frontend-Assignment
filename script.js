@@ -76,7 +76,7 @@ function animate() {
   if (!coords.length || i >= coords.length - 1) return;
   let start = coords[i];
   let end = coords[i + 1];
-  let steps = 50, currentStep = 0;
+  let steps = 20, currentStep = 0; // 🔼 Reduced steps = faster
 
   let latStep = (end[0] - start[0]) / steps;
   let lngStep = (end[1] - start[1]) / steps;
@@ -97,7 +97,7 @@ function animate() {
       i++;
       animate();
     }
-  }, 20);
+  }, 10); // 🔼 Faster interval
 }
 
 function getAngle(lat1, lon1, lat2, lon2) {
