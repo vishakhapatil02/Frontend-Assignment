@@ -4,34 +4,63 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
 }
+
 #map {
-  height: 70vh;
+  height: 60vh;
   width: 100%;
 }
-.controls {
-  margin: 10px;
+
+.form-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
-.controls button {
-  padding: 10px 20px;
+
+.form-container input,
+.form-container button {
+  padding: 10px;
   font-size: 16px;
-  margin: 0 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+#controls {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: #ffffff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+#controls button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
+
+#controls button:hover {
+  background: #0056b3;
+}
+
 .rotating-car {
   background: none !important;
   border: none !important;
 }
+
 .car-image {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.1s linear;
-.form-container {
-  margin: 10px;
-}
-}
-input {
-  padding: 10px;
-  margin: 5px;
-  font-size: 14px;
-  width: 250px;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.1s linear;
 }

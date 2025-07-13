@@ -13,9 +13,8 @@ let markerIcon = L.divIcon({
   iconAnchor: [20, 20]
 });
 
-// Function to fetch coordinates from OpenRouteService
 async function fetchRoute(start, end) {
-  const apiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjA1OTU1YjRlYzE3NTQ1YmZhZGRlYzQ4YzBhYjE0M2YxIiwiaCI6Im11cm11cjY0In0='; // Your key
+  const apiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjA1OTU1YjRlYzE3NTQ1YmZhZGRlYzQ4YzBhYjE0M2YxIiwiaCI6Im11cm11cjY0In0=';
   const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${start.lng},${start.lat}&end=${end.lng},${end.lat}`;
 
   try {
@@ -29,7 +28,6 @@ async function fetchRoute(start, end) {
     const geometry = data.features[0].geometry.coordinates;
     coords = geometry.map(coord => [coord[1], coord[0]]);
 
-    // Clear old layers
     map.eachLayer(layer => {
       if (layer instanceof L.Polyline || layer instanceof L.Marker) {
         map.removeLayer(layer);
@@ -51,7 +49,6 @@ async function fetchRoute(start, end) {
   }
 }
 
-// Convert place name to coordinates using Nominatim
 async function geocode(place) {
   const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`);
   const data = await res.json();
@@ -100,14 +97,14 @@ function animate() {
       i++;
       animate();
     }
-  }, 20); // ✅ Faster animation speed
+  }, 20);
 }
 
 function getAngle(lat1, lon1, lat2, lon2) {
   const toRad = deg => deg * (Math.PI / 180);
   const y = Math.sin(toRad(lon2 - lon1)) * Math.cos(toRad(lat2));
   const x = Math.cos(toRad(lat1)) * Math.sin(toRad(lat2)) -
-            Math.sin(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.cos(toRad(lon2 - lon1));
+    Math.sin(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.cos(toRad(lon2 - lon1));
   const angle = Math.atan2(y, x);
   return (angle * 180 / Math.PI + 360) % 360;
 }
